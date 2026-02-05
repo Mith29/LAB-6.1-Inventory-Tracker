@@ -5,7 +5,7 @@ import { calculateTax } from "./utils/taxCalculator.ts";
 import { DigitalProduct } from "./models/DigitalProduct.ts";
 import { sortByName , sortByPrice } from "./utils/sortProduct.ts";
 
-// Create instances
+// Create an array of Product instances, including both PhysicalProduct and DigitalProduct
 const products: Product[] = [
   new PhysicalProduct("P001", "Laptop", 1200, 2.5, 10),
   new DigitalProduct("D001", "E-book", 30, 5),
@@ -14,7 +14,7 @@ const products: Product[] = [
     new PhysicalProduct("P003", "Tv", 500, 25, 10),
   new DigitalProduct("D003", "Audio-book", 20, 7.5)
 ];
-// Display details and prices
+// Loop through each product and display details
 for (const product of products) {
   console.log(product.displayDetails());
   // If it's a physical product, show weight
@@ -27,6 +27,7 @@ for (const product of products) {
   if (product instanceof DigitalProduct) {
     console.log(`File Size: ${product.formattedFilesize}`);
   }
+  // Show the price including tax for any product
   console.log(`Price with Tax: $${calculateTax(product).toFixed(2)}`);
   console.log('-------------------------');
   

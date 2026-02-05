@@ -1,11 +1,11 @@
 import { Product } from "../models/Product.ts";
 
 
-
+// Function to sort an array of products by price in ascending order
 export function sortByPrice(products: Product[]): Product[] {
   return [...products].sort((a, b) => a.price - b.price);
 }
-
+// Function to sort an array of products by name alphabetically
 export function sortByName(products: Product[]): Product[] {
   return [...products].sort((a, b) => a.name.localeCompare(b.name));
 }
